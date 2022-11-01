@@ -6,8 +6,8 @@ import javax.persistence.Persistence;
 
 public class Dao<E> {
 
-    private static EntityManagerFactory emf;
-    private static EntityManager em;
+    protected static EntityManagerFactory emf;
+    protected static EntityManager em;
 
     static {
         try {
@@ -31,6 +31,12 @@ public class Dao<E> {
     public void apagar(E entidade) {
         em.getTransaction().begin();
         em.remove(entidade);
+        em.getTransaction().commit();
+    }    
+    
+    public void alterar(E entidade) {
+        em.getTransaction().begin();
+        em.merge(entidade);
         em.getTransaction().commit();
     }
 

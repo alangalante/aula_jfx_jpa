@@ -35,4 +35,17 @@ public class Cliente {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 }

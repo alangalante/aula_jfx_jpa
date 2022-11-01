@@ -6,14 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.ClienteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.ClienteController">
    <children>
-      <ListView fx:id="LstClientes" layoutX="14.0" layoutY="22.0" prefHeight="362.0" prefWidth="265.0" />
+      <ListView fx:id="LstClientes" layoutX="14.0" layoutY="22.0" onKeyPressed="#LstClientes_KeyPressed" onMouseClicked="#LstClientes_MouseClicked" prefHeight="362.0" prefWidth="265.0" />
       <Label layoutX="300.0" layoutY="34.0" text="Nome" />
-      <TextField fx:id="TxtNome" layoutX="363.0" layoutY="30.0" prefHeight="25.0" prefWidth="205.0" />
+      <TextField fx:id="TxtNome" disable="true" layoutX="363.0" layoutY="30.0" prefHeight="25.0" prefWidth="205.0" />
       <Label layoutX="300.0" layoutY="82.0" text="Endereço" />
-      <TextField fx:id="TxtEndereco" layoutX="363.0" layoutY="78.0" prefHeight="25.0" prefWidth="205.0" />
-      <Button layoutX="513.0" layoutY="149.0" mnemonicParsing="false" onAction="#gravar_click" text="Gravar" />
+      <TextField fx:id="TxtEndereco" disable="true" layoutX="363.0" layoutY="78.0" prefHeight="25.0" prefWidth="205.0" />
+      <Button fx:id="BtnGravar" disable="true" layoutX="513.0" layoutY="149.0" mnemonicParsing="false" onAction="#gravar_click" text="Gravar" />
+      <Button fx:id="BtnIncluir" layoutX="21.0" layoutY="392.0" mnemonicParsing="false" onAction="#incluir_click" text="Incluir" />
+      <Button fx:id="BtnAlterar" layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#alterar_click" text="Alterar" />
+      <Button fx:id="BtnExcluir" layoutX="191.0" layoutY="392.0" mnemonicParsing="false" onAction="#excluir_click" text="Excluir" />
    </children>
 </Pane>
