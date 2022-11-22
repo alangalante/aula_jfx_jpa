@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MainController">
+   <children>
+      <Button layoutX="63.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnCadastrarCliente_Click" prefHeight="25.0" prefWidth="134.0" text="Cadastrar Clientes" />
+   </children>
+</Pane>

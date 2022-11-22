@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.edu.femass.dao.Dao;
 import br.edu.femass.dao.DaoCliente;
 import br.edu.femass.model.Cliente;
 import javafx.collections.FXCollections;
@@ -14,7 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -39,6 +41,19 @@ public class ClienteController implements Initializable {
     @FXML 
     private Button BtnGravar;
 
+    @FXML 
+    private TableView<Cliente> tabela = new TableView<Cliente>();
+
+    @FXML 
+    private TableColumn<Cliente,String> colNome = new TableColumn<>();
+
+    @FXML 
+    private TableColumn<Cliente,String> colEndereco = new TableColumn<>();
+
+    @FXML 
+    private TableColumn<Cliente,Long> colId = new TableColumn<>();
+
+
 
     private DaoCliente dao = new DaoCliente();
 
@@ -59,6 +74,7 @@ public class ClienteController implements Initializable {
         }
 
         preencherLista();
+        preencherTabela();
         editar(false);
     }
     
@@ -126,10 +142,32 @@ public class ClienteController implements Initializable {
 
         ObservableList<Cliente> data = FXCollections.observableArrayList(clientes);
         LstClientes.setItems(data);
+    }    
+    
+    
+    private void preencherTabela() {
+        List<Cliente> clientes = dao.buscarTodosPorId();
+
+        ObservableList<Cliente> data = FXCollections.observableArrayList(clientes);
+        tabela.setItems(data);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        colNome.setCellValueFactory(
+            new PropertyValueFactory<Cliente, String>("nome")
+        );        
+        
+        colEndereco.setCellValueFactory(
+            new PropertyValueFactory<Cliente, String>("endereco")
+        );
+        
+        colId.setCellValueFactory(
+            new PropertyValueFactory<Cliente, Long>("id")
+        );
+
+
         preencherLista();
+        preencherTabela();
     }    
 }

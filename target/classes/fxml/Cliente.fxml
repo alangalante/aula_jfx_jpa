@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
@@ -17,5 +19,12 @@
       <Button fx:id="BtnIncluir" layoutX="21.0" layoutY="392.0" mnemonicParsing="false" onAction="#incluir_click" text="Incluir" />
       <Button fx:id="BtnAlterar" layoutX="101.0" layoutY="392.0" mnemonicParsing="false" onAction="#alterar_click" text="Alterar" />
       <Button fx:id="BtnExcluir" layoutX="191.0" layoutY="392.0" mnemonicParsing="false" onAction="#excluir_click" text="Excluir" />
+      <TableView fx:id="tabela" layoutX="300.0" layoutY="203.0" prefHeight="200.0" prefWidth="291.0">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="54.0" text="ID" />
+          <TableColumn fx:id="colNome" prefWidth="95.0" text="Nome" />
+          <TableColumn fx:id="colEndereco" prefWidth="110.0" text="Endereço" />
+        </columns>
+      </TableView>
    </children>
 </Pane>
