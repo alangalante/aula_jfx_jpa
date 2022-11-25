@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,6 +54,9 @@ public class ClienteController implements Initializable {
     @FXML 
     private TableColumn<Cliente,Long> colId = new TableColumn<>();
 
+    @FXML
+    private ComboBox<Cliente> CboClientes;
+
 
 
     private DaoCliente dao = new DaoCliente();
@@ -75,6 +79,7 @@ public class ClienteController implements Initializable {
 
         preencherLista();
         preencherTabela();
+        preencherCombo();
         editar(false);
     }
     
@@ -142,6 +147,13 @@ public class ClienteController implements Initializable {
 
         ObservableList<Cliente> data = FXCollections.observableArrayList(clientes);
         LstClientes.setItems(data);
+    }     
+    
+    private void preencherCombo() {
+        List<Cliente> clientes = dao.buscarTodos();
+
+        ObservableList<Cliente> data = FXCollections.observableArrayList(clientes);
+        CboClientes.setItems(data);
     }    
     
     
@@ -169,5 +181,6 @@ public class ClienteController implements Initializable {
 
         preencherLista();
         preencherTabela();
+        preencherCombo();
     }    
 }
